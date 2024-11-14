@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #121212;
+            color: #00FF41;
+            text-align: center;
+            padding: 2rem;
+        }
+    
+        /* Navigation Styling */
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 2px solid #4CAF50;
+        }
+    
+        nav a {
+            color: #00FF41;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+        }
+    
+        nav a:hover {
+            color: #fff;
+        }
+    
+        /* Header Styling */
+        header {
+            background: linear-gradient(45deg, #4CAF50, #333);
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            animation: headerAnim 5s linear infinite alternate;
+        }
+    
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stoppuhr - niliees</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #00FF41;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stopwatch-container {
+            margin-top: 2rem;
+        }
+
+        #display {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #FFFFFF;
+        }
+
+        button {
+            padding: 0.7rem 1.5rem;
+            font-size: 1.2rem;
+            border: none;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+
+        button:hover {
+            background-color: #00FF41;
+        }
+    </style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer - niliees</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #00FF41;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .timer-container {
+            margin-top: 2rem;
+        }
+
+        input[type="number"] {
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            border: none;
+            margin: 0.5rem;
+        }
+
+        button {
+            padding: 0.7rem 1.5rem;
+            font-size: 1.2rem;
+            border: none;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background-color: #00FF41;
+        }
+
+        #countdownDisplay {
+            font-size: 2rem;
+            margin-top: 2rem;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projekte.html">Projekte</a>
+        <a href="about.html">Über Mich</a>
+        <a href="gallery.html">Galerie</a>
+        <a href="contact.html">Kontakt</a>
+        <a href="links.html">Links</a>
+        <a href="tools.html">Tools</a>
+        <a href="admin.html">Admin</a>
+        <a href="https://niliees.betteruptime.com/">Status</a>
+        
+    </nav>
+    <header>
+        <h1>Timer</h1>
+        <p>Stelle deinen Countdown und drücke Start, um den Timer zu starten.</p>
+    </header>
+
+    <section class="timer-container">
+        <input type="number" id="minutes" placeholder="Minuten" min="0">
+        <input type="number" id="seconds" placeholder="Sekunden" min="0">
+        <button id="startTimerBtn">Start</button>
+        <button id="resetTimerBtn">Zurücksetzen</button>
+        <div id="countdownDisplay">00:00</div>
+    </section>
+
+    <script>
+        let countdownInterval;
+
+        document.getElementById('startTimerBtn').addEventListener('click', function() {
+            let minutes = parseInt(document.getElementById('minutes').value) || 0;
+            let seconds = parseInt(document.getElementById('seconds').value) || 0;
+            let totalSeconds = minutes * 60 + seconds;
+
+            function updateDisplay() {
+                let displayMinutes = Math.floor(totalSeconds / 60);
+                let displaySeconds = totalSeconds % 60;
+                document.getElementById('countdownDisplay').textContent = 
+                    String(displayMinutes).padStart(2, '0') + ':' + String(displaySeconds).padStart(2, '0');
+            }
+
+            updateDisplay();
+
+            clearInterval(countdownInterval);
+            countdownInterval = setInterval(function() {
+                if (totalSeconds <= 0) {
+                    clearInterval(countdownInterval);
+                    alert('Zeit ist abgelaufen!');
+                } else {
+                    totalSeconds--;
+                    updateDisplay();
+                }
+            }, 1000);
+        });
+
+        document.getElementById('resetTimerBtn').addEventListener('click', function() {
+            clearInterval(countdownInterval);
+            document.getElementById('minutes').value = '';
+            document.getElementById('seconds').value = '';
+            document.getElementById('countdownDisplay').textContent = '00:00';
+        });
+    </script>
+
+    <footer>
+        <p>&copy; 2024 niliees</p>
+    </footer>
+</body>
+</html>

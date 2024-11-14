@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>niliees - Links</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #121212;
+            margin: 0;
+            padding: 0;
+            color: #00FF41;
+            text-align: center;
+            padding: 2rem;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            display: flex;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 2px solid #4CAF50;
+        }
+        
+        nav a {
+            color: #00FF41;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        .profile {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+
+        .profile h1 {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
+        .link-list {
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px 5px #4CAF50;
+        }
+        .link-list a {
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px 5px #4CAF50;
+        }
+
+        .link-list a {
+            display: block;
+            padding: 1rem;
+            margin: 1rem 0;
+            background-color: #333;
+            color: #00ff2a;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .link-list a:hover {
+            background-color: #333;
+        }
+
+        .link-list h3 {
+            text-align: left;
+            font-size: 1.2rem;
+            color: #999;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projekte.html">Projekte</a>
+        <a href="about.html">Über Mich</a>
+        <a href="gallery.html">Galerie</a>
+        <a href="contact.html">Kontakt</a>
+        <a href="links.html">Links</a>
+        <a href="admin.html">Admin</a>
+        <a href="https://niliees.betteruptime.com/">Status</a>
+
+    </nav>
+    <div class="profile">
+        <img src="https://ugc.production.linktr.ee/97417b06-3738-4b49-92cf-0000ea4559a4_Download--16-.jpeg?io=true&size=avatar-v3_0" alt="Profile Picture">
+        <h1>@niliees</h1>
+    </div>
+
+    <main>
+        <section class="link-list" id="linkList">
+            <a id="supportLink" href="https://ko-fi.com/niliees" target="_blank">Support Me</a>
+            <a id="discordLink" href="https://discord.gg/euq2wtrq" target="_blank">Discord</a>
+            <h3>Tools</h3>
+            <a id="multiToolLink" href="https://www.dropbox.com/scl/fi/k9rslw3mzsmanfliqheup/MultiTool-by-niliees-PREMIUM.bat?rlkey=1mj5swc01typ52k38q38n3g4g&st=z81c7fhv&dl=1" target="_blank">Multi Tool</a>
+            <a id="gamingBoosterLink" href="https://www.dropbox.com/scl/fi/iigy7pxerk0qzi2u71w04/Gaming-Booster-by-niliees-PREMIUM.bat?rlkey=2olxpajgvhx83sx91cfckz4gu&st=w5rc50dy&dl=1" target="_blank">Gaming Booster</a>
+            <h3>BetterGaming</h3>
+            <a id="directDataLink" href="http://bit.ly/3TDYy7Y" target="_blank">Direkt alle Daten</a>
+            <a id="githubLink" href="https://github.com/niliees/BetterGaming" target="_blank">GitHub</a>
+        </section>
+    </main>
+
+    <script>
+        // Einstellungen aus dem Local Storage anwenden
+        window.onload = function() {
+            document.getElementById("supportLink").style.display = localStorage.getItem("supportLink") === "false" ? "none" : "block";
+            document.getElementById("discordLink").style.display = localStorage.getItem("discordLink") === "false" ? "none" : "block";
+            document.getElementById("multiToolLink").style.display = localStorage.getItem("multiToolLink") === "false" ? "none" : "block";
+            document.getElementById("gamingBoosterLink").style.display = localStorage.getItem("gamingBoosterLink") === "false" ? "none" : "block";
+            document.getElementById("directDataLink").style.display = localStorage.getItem("directDataLink") === "false" ? "none" : "block";
+            document.getElementById("githubLink").style.display = localStorage.getItem("githubLink") === "false" ? "none" : "block";
+        }
+    </script>
+
+</body>
+</html>

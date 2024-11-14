@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+</html>
+<style>
+    body {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #121212;
+        color: #00FF41;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    /* Navigation Styling */
+    nav {
+        background-color: #333;
+        color: #fff;
+        padding: 1rem;
+        text-align: center;
+        border-bottom: 2px solid #4CAF50;
+    }
+
+    nav a {
+        color: #00FF41;
+        text-decoration: none;
+        margin: 0 1rem;
+        font-size: 1.2rem;
+    }
+
+    nav a:hover {
+        color: #fff;
+    }
+
+    /* Header Styling */
+    header {
+        background: linear-gradient(45deg, #4CAF50, #333);
+        color: #fff;
+        padding: 2rem;
+        text-align: center;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        animation: headerAnim 5s linear infinite alternate;
+    }
+
+    footer {
+        background-color: #333;
+        color: #fff;
+        padding: 1rem;
+        text-align: center;
+        margin-top: 2rem;
+    }
+</style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projekte.html">Projekte</a>
+        <a href="about.html">Über Mich</a>
+        <a href="gallery.html">Galerie</a>
+        <a href="contact.html">Kontakt</a>
+        <a href="links.html">Links</a>
+        <a href="tools.html">Tools</a>
+        <a href="admin.html">Admin</a>
+        <a href="https://niliees.betteruptime.com/">Status</a>
+        
+    </nav>
+    <header>
+        <h1>Stoppuhr</h1>
+        <p>Drücke Start, um die Zeit zu messen.</p>
+    </header>
+
+    <section class="stopwatch-container">
+        <div id="display">00:00:00</div>
+        <button id="startBtn">Start</button>
+        <button id="stopBtn">Stop</button>
+        <button id="resetBtn">Zurücksetzen</button>
+    </section>
+
+    <script>
+        let startTime;
+        let updatedTime;
+        let difference;
+        let timerInterval;
+        let running = false;
+
+        const display = document.getElementById('display');
+        const startBtn = document.getElementById('startBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const resetBtn = document.getElementById('resetBtn');
+
+        function startTimer() {
+            if (!running) {
+                startTime = new Date().getTime() - (difference || 0);
+                timerInterval = setInterval(updateTimer, 1000);
+                running = true;
+            }
+        }
+
+        function stopTimer() {
+            if (running) {
+                clearInterval(timerInterval);
+                difference = new Date().getTime() - startTime;
+                running = false;
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            startTime = null;
+            difference = 0;
+            running = false;
+            display.textContent = "00:00:00";
+        }
+
+        function updateTimer() {
+            updatedTime = new Date().getTime() - startTime;
+            let hours = Math.floor((updatedTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((updatedTime % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((updatedTime % (1000 * 60)) / 1000);
+
+            display.textContent =
+                String(hours).padStart(2, '0') + ':' +
+                String(minutes).padStart(2, '0') + ':' +
+                String(seconds).padStart(2, '0');
+        }
+
+        startBtn.addEventListener('click', startTimer);
+        stopBtn.addEventListener('click', stopTimer);
+        resetBtn.addEventListener('click', resetTimer);
+    </script>
+
+    <footer>
+        <p>&copy; 2024 niliees</p>
+    </footer>
+</body>
+</html>
