@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Seiten und Links verwalten</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+        }
+        /* Navigation Styling */
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        nav a {
+            color: #00FF41;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        .link-toggle, .user-form {
+            margin: 1rem 0;
+        }
+
+        input[type="button"], input[type="submit"] {
+            padding: 0.5rem 1rem;
+            margin: 1rem;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover, input[type="submit"]:hover {
+            background-color: #333;
+        }
+
+        input[type="password"], input[type="text"] {
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .permissions-section {
+            text-align: left;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="projekte.html">Projekte</a>
+        <a href="about.html">Über Mich</a>
+        <a href="gallery.html">Galerie</a>
+        <a href="contact.html">Kontakt</a>
+        <a href="links.html">Links</a>
+    </nav>
+    <h1>Admin Bereich - Seiten und Links verwalten</h1>
+    <div id="loginSection">
+        <p>Bitte Nutzernamen und Passwort eingeben:</p>
+        <input type="text" id="username" placeholder="Nutzername">
+        <input type="password" id="password" placeholder="Passwort">
+        <input type="button" value="Einloggen" onclick="checkLogin()">
+    </div>
+
+    <div id="adminSection" class="hidden">
+        <h2>Links aktivieren/deaktivieren</h2>
+        <div class="link-toggle hidden" id="supportLinkToggle">
+            <label><input type="checkbox" id="supportLink" checked> Support Me</label>
+        </div>
+        <div class="link-toggle hidden" id="discordLinkToggle">
+            <label><input type="checkbox" id="discordLink" checked> Discord</label>
+        </div>
+        <div class="link-toggle hidden" id="multiToolLinkToggle">
+            <label><input type="checkbox" id="multiToolLink" checked> Multi Tool</label>
+        </div>
+        <div class="link-toggle hidden" id="gamingBoosterLinkToggle">
+            <label><input type="checkbox" id="gamingBoosterLink" checked> Gaming Booster</label>
+        </div>
+        <div class="link-toggle hidden" id="directDataLinkToggle">
+            <label><input type="checkbox" id="directDataLink" checked> Direkt alle Daten</label>
+        </div>
+        <div class="link-toggle hidden" id="githubLinkToggle">
+            <label><input type="checkbox" id="githubLink" checked> GitHub</label>
+        </div>
+
+        <h2>Seiten aktivieren/deaktivieren</h2>
+        <div class="link-toggle hidden" id="aboutPageToggle">
+            <label><input type="checkbox" id="aboutPage" checked> Über Mich Seite</label>
+        </div>
+        <div class="link-toggle hidden" id="galleryPageToggle">
+            <label><input type="checkbox" id="galleryPage" checked> Galerie Seite</label>
+        </div>
+        <div class="link-toggle hidden" id="contactPageToggle">
+            <label><input type="checkbox" id="contactPage" checked> Kontakt Seite</label>
+        </div>
+
+        <input type="button" value="Speichern" onclick="saveSettings()">
+
+        <div id="userManagementSection" class="hidden">
+            <h2>Benutzer hinzufügen</h2>
+            <form onsubmit="addUser(event)">
+                <input type="text" id="newUsername" placeholder="Nutzername" required>
+                <input type="password" id="newPassword" placeholder="Passwort" required>
+                <div class="permissions-section">
+                    <h3>Berechtigungen zuweisen:</h3>
+                    <label><input type="checkbox" value="supportLink" class="permissionCheckbox"> Support Me</label><br>
+                    <label><input type="checkbox" value="discordLink" class="permissionCheckbox"> Discord</label><br>
+                    <label><input type="checkbox" value="multiToolLink" class="permissionCheckbox"> Multi Tool</label><br>
+                    <label><input type="checkbox" value="gamingBoosterLink" class="permissionCheckbox"> Gaming Booster</label><br>
+                    <label><input type="checkbox" value="directDataLink" class="permissionCheckbox"> Direkt alle Daten</label><br>
+                    <label><input type="checkbox" value="githubLink" class="permissionCheckbox"> GitHub</label><br>
+                    <label><input type="checkbox" value="aboutPage" class="permissionCheckbox"> Über Mich Seite</label><br>
+                    <label><input type="checkbox" value="galleryPage" class="permissionCheckbox"> Galerie Seite</label><br>
+                    <label><input type="checkbox" value="contactPage" class="permissionCheckbox"> Kontakt Seite</label>
+                </div>
+                <input type="submit" value="Benutzer hinzufügen">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function checkLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            const users = JSON.parse(localStorage.getItem("users")) || {};
+
+            if (username === "niliees" && password === "1234") {
+                document.getElementById("loginSection").classList.add("hidden");
+                document.getElementById("adminSection").classList.remove("hidden");
+                document.getElementById("userManagementSection").classList.remove("hidden");
+                showAllLinkToggles();
+            } else if (users[username] && users[username].password === password) {
+                document.getElementById("loginSection").classList.add("hidden");
+                document.getElementById("adminSection").classList.remove("hidden");
+
+                // Zeige nur die erlaubten Links für den Benutzer an
+                const permissions = users[username].permissions;
+                console.log("Berechtigungen für den Benutzer:", permissions);
+
+                hideAllLinkToggles();
+                permissions.forEach(permission => {
+                    if (document.getElementById(`${permission}Toggle`)) {
+                        document.getElementById(`${permission}Toggle`).classList.remove("hidden");
+                    }
+                });
+            } else {
+                alert("Falscher Nutzername oder falsches Passwort!");
+            }
+        }
+
+        function showAllLinkToggles() {
+            document.querySelectorAll('.link-toggle').forEach(toggle => toggle.classList.remove("hidden"));
+        }
+
+        function hideAllLinkToggles() {
+            document.querySelectorAll('.link-toggle').forEach(toggle => toggle.classList.add("hidden"));
+        }
+
+        function saveSettings() {
+            localStorage.setItem("supportLink", document.getElementById("supportLink").checked);
+            localStorage.setItem("discordLink", document.getElementById("discordLink").checked);
+            localStorage.setItem("multiToolLink", document.getElementById("multiToolLink").checked);
+            localStorage.setItem("gamingBoosterLink", document.getElementById("gamingBoosterLink").checked);
+            localStorage.setItem("directDataLink", document.getElementById("directDataLink").checked);
+            localStorage.setItem("githubLink", document.getElementById("githubLink").checked);
+            localStorage.setItem("aboutPage", document.getElementById("aboutPage").checked);
+            localStorage.setItem("galleryPage", document.getElementById("galleryPage").checked);
+            localStorage.setItem("contactPage", document.getElementById("contactPage").checked);
+            alert("Einstellungen gespeichert!");
+        }
+
+        function addUser(event) {
+            event.preventDefault();
+            const username = document.getElementById("newUsername").value;
+            const password = document.getElementById("newPassword").value;
+            const permissions = Array.from(document.querySelectorAll(".permissionCheckbox:checked")).map(checkbox => checkbox.value);
+
+            let users = JSON.parse(localStorage.getItem("users")) || {};
+            users[username] = { password: password, permissions: permissions };
+
+            localStorage.setItem("users", JSON.stringify(users));
+            alert("Benutzer hinzugefügt!");
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>

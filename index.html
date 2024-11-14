@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>niliees - Über mich</title>
+    <style>
+        /* Grundlegendes Styling */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #121212;
+            color: #00FF41;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Navigation Styling */
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        nav a {
+            color: #00FF41;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* Header Styling */
+        header {
+            background: linear-gradient(45deg, #4CAF50, #333);
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            animation: headerAnim 5s linear infinite alternate;
+        }
+
+        @keyframes headerAnim {
+            0% { background: linear-gradient(45deg, #4CAF50, #333); }
+            50% { background: linear-gradient(45deg, #333, #4CAF50); }
+            100% { background: linear-gradient(45deg, #4CAF50, #333); }
+        }
+
+        /* Hauptinhalt Styling */
+        main {
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px 5px #4CAF50;
+        }
+
+        h1, h2, h3 {
+            color: #00FF41;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #ffffff;
+        }
+
+        /* Projektkarten Styling */
+        .project-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background-color: #333;
+            color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            width: 260px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 10px #4CAF50;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Terminal Simulation Styling */
+        .console {
+            background-color: #000;
+            color: #00FF41;
+            padding: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 5px;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .console p {
+            margin: 0.3rem 0;
+        }
+
+        /* Link-Styling */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #fff;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="projekte.html">Projekte</a>
+        <a href="about.html">Über Mich</a>
+        <a href="gallery.html">Galerie</a>
+        <a href="contact.html">Kontakt</a>
+        <a href="links.html">Links</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+
+    <header>
+        <h1>Willkommen auf meiner Seite!</h1>
+        <p>Hallo! Ich bin niliees, Entwickler und Streamer.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Über mich</h2>
+            <p>Ich bin ein leidenschaftlicher Programmierer und arbeite gerne an kreativen Projekten. Auf dieser Seite findest du Links zu meinen sozialen Medien und Projekten.</p>
+        </section>
+
+        <section class="project-cards">
+            <div class="project-card">
+                <h3>Projekt 1: Discord Bot</h3>
+                <p>Ein Bot für Discord, der verschiedene nützliche Funktionen bereitstellt, von Moderation bis Unterhaltung.</p>
+            </div>
+            <div class="project-card">
+                <h3>Projekt 2: Gaming Booster</h3>
+                <p>Eine Anwendung, die optimiert wurde, um das Spielerlebnis zu verbessern und Ressourcen freizugeben.</p>
+            </div>
+            <div class="project-card">
+                <h3>Projekt 3: Portfolio Website</h3>
+                <p>Eine Webseite, die meine Arbeit und Fähigkeiten zeigt. Komplett mit HTML, CSS und JavaScript.</p>
+            </div>
+        </section>
+
+        <section class="console">
+            <h2>Virtuelle Konsole</h2>
+            <p>&gt; niliees@home:~$ Willkommen zu meiner persönlichen Webseite</p>
+            <p>&gt; niliees@home:~$ Hier findest du alles über meine Projekte</p>
+            <p>&gt; niliees@home:~$ Schaue dich um und lass dich inspirieren!</p>
+        </section>
+
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2024 niliees</p>
+    </footer>
+
+</body>
+</html>

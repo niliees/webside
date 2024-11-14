@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #121212;
+            color: #00FF41;
+            text-align: center;
+            padding: 2rem;
+        }
+        /* Navigation Styling */
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        nav a {
+            color: #00FF41;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+        form {
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px 5px #4CAF50;
+        }
+        input, textarea {
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border: none;
+            width: 80%;
+            max-width: 400px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #000000;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="projekte.html">Projekte</a>
+        <a href="about.html">Über Mich</a>
+        <a href="gallery.html">Galerie</a>
+        <a href="links.html">Links</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+    <h1>Kontakt</h1>
+    <form>
+        <input type="text" id="name" placeholder="Name" required><br>
+        <input type="email" id="email" placeholder="E-Mail" required><br>
+        <textarea id="message" placeholder="Nachricht" rows="4" required></textarea><br>
+        <input type="submit" value="Senden">
+    </form>
+</body>
+</html>

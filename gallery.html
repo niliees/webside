@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #121212;
+            color: #00FF41;
+            text-align: center;
+            padding: 2rem;
+        }
+        /* Navigation Styling */
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        nav a {
+            color: #00FF41;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .gallery img {
+            max-width: 200px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="projekte.html">Projekte</a>
+        <a href="about.html">Über Mich</a>
+        <a href="contact.html">Kontakt</a>
+        <a href="links.html">Links</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+    <h1>Galerie</h1>
+    <div class="gallery">
+        <img src="https://ugc.production.linktr.ee/97417b06-3738-4b49-92cf-0000ea4559a4_Download--16-.jpeg?io=true&size=avatar-v3_0" alt="Bild 1">
+        <img src="https://ugc.production.linktr.ee/97417b06-3738-4b49-92cf-0000ea4559a4_Download--16-.jpeg?io=true&size=avatar-v3_0" alt="Bild 2">
+        <img src="https://ugc.production.linktr.ee/97417b06-3738-4b49-92cf-0000ea4559a4_Download--16-.jpeg?io=true&size=avatar-v3_0" alt="Bild 3">
+    </div>
+</body>
+</html>
