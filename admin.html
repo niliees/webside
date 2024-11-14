@@ -74,6 +74,9 @@
         <a href="gallery.html">Galerie</a>
         <a href="contact.html">Kontakt</a>
         <a href="links.html">Links</a>
+        <a href="development.html">DEV</a>
+
+
     </nav>
     <h1>Admin Bereich - Seiten und Links verwalten</h1>
     <div id="loginSection">
@@ -82,6 +85,7 @@
         <input type="password" id="password" placeholder="Passwort">
         <input type="button" value="Einloggen" onclick="checkLogin()">
     </div>
+
 
     <div id="adminSection" class="hidden">
         <h2>Links aktivieren/deaktivieren</h2>
@@ -146,7 +150,7 @@
 
             const users = JSON.parse(localStorage.getItem("users")) || {};
 
-            if (username === "niliees" && password === "host8888") {
+            if (username === "niliees" && password === "1234") {
                 document.getElementById("loginSection").classList.add("hidden");
                 document.getElementById("adminSection").classList.remove("hidden");
                 document.getElementById("userManagementSection").classList.remove("hidden");

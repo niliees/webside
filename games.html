@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neal.fun Spiele</title>
+    <style>
+        nav {    background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        nav a {
+            color: #00FF41;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .game-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .game-card {
+            background-color: #333;
+            color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            width: 260px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 10px #4CAF50;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+        }
+
+        .game-card a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .game-card a:hover {
+            color: #00FF41;
+        }
+
+        canvas {
+            background-color: #000;
+            border: 2px solid #4CAF50;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projekte.html">Projekte</a>
+        <a href="about.html">Über Mich</a>
+        <a href="gallery.html">Galerie</a>
+        <a href="contact.html">Kontakt</a>
+        <a href="links.html">Links</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+    <h1>Neal.fun Spiele</h1>
+    <p>Hier sind einige lustige Spiele von neal.fun, die du ausprobieren kannst!</p>
+
+    <section class="game-list">
+        <div class="game-card">
+            <h2>Absurd Trolley Problems</h2>
+            <p>Stelle dich den kniffligen Entscheidungen eines Trolley-Problems und entscheide, welche Wege du gehen willst!</p>
+            <button onclick="startTrolleyProblem()">Spiel starten</button>
+        </div>
+        <div class="game-card">
+            <h2>Rocks</h2>
+            <p>Erforsche interessante Felsen und finde heraus, wie man eine Sammlung erstellt, die niemand so schnell vergisst.</p>
+            <button onclick="startRocksGame()">Spiel starten</button>
+        </div>
+        <div class="game-card">
+            <h2>Printing Money</h2>
+            <p>Wie viel Geld kannst du drucken? Finde heraus, wie es sich anfühlt, über riesige Geldmengen zu verfügen.</p>
+            <button onclick="startPrintingMoney()">Spiel starten</button>
+        </div>
+        <div class="game-card">
+            <h2>Where Does the Day Go?</h2>
+            <p>Verfolge, wie der durchschnittliche Tag einer Person vergeht. Wie nutzt du deine Zeit?</p>
+            <button onclick="startDaySimulation()">Spiel starten</button>
+        </div>
+        <div class="game-card">
+            <h2>Speed</h2>
+            <p>Fühle die Geschwindigkeit verschiedener Dinge in der Welt. Vergleiche und verstehe die Unterschiede.</p>
+            <button onclick="startSpeedGame()">Spiel starten</button>
+        </div>
+    </section>
+
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function startTrolleyProblem() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'white';
+            ctx.font = '20px Arial';
+            ctx.fillText('Absurd Trolley Problem Simulation', 50, 50);
+            ctx.fillText('Stelle dir vor, dass ein Trolley auf Schienen entlangrast...', 50, 100);
+            ctx.fillText('Treffe deine Entscheidung!', 50, 150);
+        }
+
+        function startRocksGame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'gray';
+            ctx.font = '20px Arial';
+            ctx.fillText('Rocks Spiel', 50, 50);
+            ctx.fillText('Sammle verschiedene Arten von Felsen und erfahre ihre Geschichten!', 50, 100);
+        }
+
+        function startPrintingMoney() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'green';
+            ctx.font = '20px Arial';
+            ctx.fillText('Printing Money', 50, 50);
+            ctx.fillText('Drucke so viel Geld, wie du kannst!', 50, 100);
+        }
+
+        function startDaySimulation() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'orange';
+            ctx.font = '20px Arial';
+            ctx.fillText('Where Does the Day Go?', 50, 50);
+            ctx.fillText('Simuliere den Verlauf eines durchschnittlichen Tages.', 50, 100);
+        }
+
+        function startSpeedGame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'blue';
+            ctx.font = '20px Arial';
+            ctx.fillText('Speed Spiel', 50, 50);
+            ctx.fillText('Erlebe die Geschwindigkeit von verschiedenen Dingen.', 50, 100);
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Neal.fun Fanpage</p>
+    </footer>
+</body>
+</html>
