@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einfacher Rechner - niliees</title>
+    <link rel="stylesheet" href="styles/tools.css">
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #121212;
+            color: #00FF41;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .calculator {
+            background-color: #222;
+            color: #00ff2a;
+            padding: 2rem;
+            border-radius: 25px;
+            box-shadow: 0 0 30px 10px #00FF41;
+            width: 400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+
+        .calculator input[type="text"] {
+            grid-column: span 4;
+            width: 100%;
+            padding: 15px;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 10px;
+            background-color: #333;
+            color: #00FF41;
+            text-align: right;
+        }
+
+        .calculator button {
+            background-color: #00FF41;
+            color: #121212;
+            border: none;
+            padding: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 15px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .calculator button:hover {
+            background-color: #4CAF50;
+            transform: scale(1.1);
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        nav a {
+            color: #00FF41;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projekte.html">Projekte</a>
+        <a href="about.html">Über Mich</a>
+        <a href="gallery.html">Galerie</a>
+        <a href="contact.html">Kontakt</a>
+        <a href="links.html">Links</a>
+        <a href="tools.html">Tools(NEW)</a>
+        <a href="admin.html">Admin</a>
+        <a href="https://niliees.betteruptime.com/">Status</a>
+
+    </nav>
+    <header>
+        <h1 style="text-shadow: 0 0 15px #00FF41;">Einfacher Rechner</h1>
+    </header>
+
+    <div class="calculator">
+        <input type="text" id="display" disabled>
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="deleteChar()">DEL</button>
+        <button onclick="appendToDisplay('/')">/</button>
+        <button onclick="appendToDisplay('*')">*</button>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('-')">-</button>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('+')">+</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="appendToDisplay('+/-')">+/-</button>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">,</button>
+    </div>
+
+    <footer>
+        <p style="text-shadow: 0 0 10px #00FF41;">&copy; 2024 niliees</p>
+    </footer>
+
+    <script>
+        function appendToDisplay(value) {
+            const display = document.getElementById('display');
+            if (value === '+/-') {
+                if (display.value.startsWith('-')) {
+                    display.value = display.value.slice(1);
+                } else if (display.value) {
+                    display.value = '-' + display.value;
+                }
+            } else {
+                display.value += value;
+            }
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function deleteChar() {
+            let currentValue = document.getElementById('display').value;
+            document.getElementById('display').value = currentValue.slice(0, -1);
+        }
+
+        function calculate() {
+            try {
+                let result = eval(document.getElementById('display').value);
+                document.getElementById('display').value = result;
+            } catch (e) {
+                alert('Ungültige Eingabe');
+            }
+        }
+    </script>
+</body>
+</html>
