@@ -89,7 +89,6 @@
             margin-top: 1rem;
             display: inline-block;
         }
-
         #downloadLink:hover {
             background-color: #4CAF50;
         }
@@ -99,6 +98,26 @@
             display: inline-block;
             margin-top: 1rem;
         }
+        #result {
+            margin-top: 2rem;
+            text-align: left;
+            white-space: pre-wrap;
+        }
+        #copyLink {
+            color: #121212;
+            background-color: #00FF41;
+            padding: 0.7rem 1.5rem;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        #copyLink:hover {
+            background-color: #4CAF50;
+        }
+        
     </style>
 </head>
 <body>
@@ -524,6 +543,8 @@
         
         <section id="result"></section>
         <a id="downloadLink" href="#" download="olympiade.txt" style="display:none;">Download als TXT</a>
+        <a id="copyLink" href="#" style="display:none;">Glücksrad Reihenfolge kopieren</a>
+
 
         <script>
             // Enable/Disable dropdowns based on checkbox selection
@@ -536,52 +557,86 @@
                 });
             });
 
-            function generateOlympiad() {
-                const games = [];
-                document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
-                    const game = checkbox.value;
-                    const modeDropdown = document.getElementById(`${checkbox.id}Mode`);
-                    const boDropdown = document.getElementById(`${checkbox.id}Bo`);
-                    const mode = modeDropdown ? modeDropdown.value : "";
-                    const bo = boDropdown ? boDropdown.value : "";
-                    games.push(`${game} ${mode ? "- " + mode : ""} (${bo})`);
-                });
+            // Funktion zur Generierung der Olympiade
+// Funktion zur Generierung der Olympiade
+// Funktion zur Generierung der Olympiade
+function generateOlympiad() {
+    const games = [];
+    document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+        const game = checkbox.value;
+        const modeDropdown = document.getElementById(`${checkbox.id}Mode`);
+        const boDropdown = document.getElementById(`${checkbox.id}Bo`);
+        const mode = modeDropdown ? modeDropdown.value : "";
+        const bo = boDropdown ? boDropdown.value : "";
+        games.push(`${game} ${mode ? "- " + mode : ""} (${bo})`);
+    });
 
-                if (games.length === 0) {
-                    alert("Bitte wähle mindestens ein Spiel aus, um die Olympiade zu generieren.");
-                    return;
-                }
+    if (games.length === 0) {
+        alert("Bitte wähle mindestens ein Spiel aus, um die Olympiade zu generieren.");
+        return;
+    }
 
-                const pointSystem = document.querySelector('input[name="pointSystem"]:checked').value;
-                let olympiadText = "Game Olympiade\n===================\n";
-                let points = 1;
+    const pointSystem = document.querySelector('input[name="pointSystem"]:checked').value;
+    let olympiadText = "Game Olympiade\n===================\n";
+    let points = 1;
 
-                // Shuffle the games array
-                for (let i = games.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [games[i], games[j]] = [games[j], games[i]];
-                }
+    // Shuffle the games array
+    for (let i = games.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [games[i], games[j]] = [games[j], games[i]];
+    }
 
-                games.forEach((game, index) => {
-                    if (pointSystem === "system2") {
-                        points = index + 1;
-                    }
-                    olympiadText += `${index + 1}. ${game} - ${points} Punkt(e)\n`;
-                });
+    games.forEach((game, index) => {
+        if (pointSystem === "system2") {
+            points = index + 1;
+        }
+        olympiadText += `${index + 1}. ${game} - ${points} Punkt(e)\n`;
+    });
 
-                document.getElementById('result').textContent = olympiadText;
-                createDownloadLink(olympiadText);
-            }
+    // Setze das Ergebnis in das result-Element
+    document.getElementById('result').textContent = olympiadText;
 
-            function createDownloadLink(content) {
-                const blob = new Blob([content], { type: 'text/plain' });
-                const url = URL.createObjectURL(blob);
-                const downloadLink = document.getElementById('downloadLink');
-                downloadLink.href = url;
-                downloadLink.style.display = 'inline';
-            }
+    // Zeige die Download- und Kopier-Buttons an
+    document.getElementById('downloadLink').style.display = 'inline-block';
+    document.getElementById('copyLink').style.display = 'inline-block';
+
+    // Erstelle den Download-Link
+    createDownloadLink(olympiadText);
+}
+
+// Funktion zum Kopieren der Spielreihenfolge
+document.getElementById('copyLink').addEventListener('click', function(event) {
+    event.preventDefault(); // Verhindert, dass der Link eine Seite lädt
+
+    const games = [];
+    document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+        games.push(checkbox.value);
+    });
+
+    if (games.length === 0) {
+        alert("Bitte wähle mindestens ein Spiel aus, um die Reihenfolge zu kopieren.");
+        return;
+    }
+
+    const gamesText = games.join('\n');
+    navigator.clipboard.writeText(gamesText).then(() => {
+        alert('Reihenfolge der Spiele wurde kopiert!');
+    }, (err) => {
+        alert('Fehler beim Kopieren: ' + err);
+    });
+});
+
+// Funktion zum Erstellen des Download-Links
+function createDownloadLink(content) {
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const downloadLink = document.getElementById('downloadLink');
+    downloadLink.href = url;
+}
+
+
+
         </script>
-
         <footer>
             <p>&copy; 2024 niliees</p>
         </footer>
