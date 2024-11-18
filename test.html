@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="theme-stylesheet" rel="stylesheet" href="styles.css">
+    <title>niliees</title>
+</head>
+<body>
+    
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projekte.html">Projekte</a>
+        <a href="about.html">Über Mich</a>
+        <a href="gallery.html">Galerie</a>
+        <a href="contact.html">Kontakt</a>
+        <a href="links.html">Links</a>
+        <a href="tools.html">Tools(NEW)</a>
+        <a href="admin.html">Admin</a>
+        <a href="https://niliees.betteruptime.com/">Status</a>
+
+    </nav>
+
+    <header>
+        <h1>Willkommen auf meiner Seite!</h1>
+        <p>Hallo! Ich bin niliees, Entwickler und Streamer.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Über mich</h2>
+            <p>Ich bin ein leidenschaftlicher Programmierer und arbeite gerne an kreativen Projekten. Auf dieser Seite findest du Links zu meinen sozialen Medien und Projekten.</p>
+        </section>
+
+        <section class="project-cards">
+            <div class="project-card">
+                <h3>Projekt 1: Discord Bot</h3>
+                <p>Ein Bot für Discord, der verschiedene nützliche Funktionen bereitstellt, von Moderation bis Unterhaltung.</p>
+            </div>
+            <div class="project-card">
+                <h3>Projekt 2: Gaming Booster</h3>
+                <p>Eine Anwendung, die optimiert wurde, um das Spielerlebnis zu verbessern und Ressourcen freizugeben.</p>
+            </div>
+            <div class="project-card">
+                <h3>Projekt 3: Portfolio Website</h3>
+                <p>Eine Webseite, die meine Arbeit und Fähigkeiten zeigt. Komplett mit HTML, CSS und JavaScript.</p>
+            </div>
+        </section>
+
+        <section class="console">
+            <h2>Virtuelle Konsole</h2>
+            <p>&gt; niliees@home:~$ Willkommen zu meiner persönlichen Webseite</p>
+            <p>&gt; niliees@home:~$ Hier findest du alles über meine Projekte</p>
+            <p>&gt; niliees@home:~$ Schaue dich um und lass dich inspirieren!</p>
+        </section>
+
+        
+    </main>
+
+    <label class="switch">
+        <input type="checkbox" id="styleSwitch"> 
+        <span class="slider"></span> 
+        <h2> Weihnachtsmodus </h2>
+        
+        
+    </label>
+
+    <script>
+        // JavaScript zum Wechseln der Stylesheets
+        document.getElementById('styleSwitch').addEventListener('change', function() {
+            const stylesheet = document.getElementById('theme-stylesheet');
+            if (this.checked) {
+                stylesheet.href = 'christmas-styles.css';
+            } else {
+                stylesheet.href = 'styles.css';
+            }
+        });
+    </script>
+
+    <style>
+        /* Style für den Switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Slider Rund machen */
+        .slider {
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            border-radius: 50%;
+        }
+    </style>
+
+    <footer>
+        <p>&copy; 2024 niliees</p>
+    </footer>
+
+</body>
+</html>
