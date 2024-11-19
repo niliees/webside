@@ -3,79 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <link id="theme-stylesheet" rel="stylesheet" href="christmas-styles.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="styles.css">
     <title>niliees</title>
-    
-
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #ffffff;
-        }
-
-        /* Projektkarten Styling */
-        .project-cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            background-color: #333;
-            color: #fff;
-            padding: 1.5rem;
-            border-radius: 10px;
-            width: 260px;
-            transition: transform 0.3s ease;
-            box-shadow: 0 0 10px #4CAF50;
-        }
-
-        .project-card:hover {
-            transform: scale(1.05);
-        }
-
-        /* Terminal Simulation Styling */
-        .console {
-            background-color: #000;
-            color: #00FF41;
-            padding: 1rem;
-            font-family: 'Courier New', Courier, monospace;
-            border-radius: 5px;
-            margin-top: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .console p {
-            margin: 0.3rem 0;
-        }
-
-        /* Link-Styling */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-links a {
-            text-decoration: none;
-            color: #4CAF50;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: #fff;
-        }
-
-    </style>
 </head>
 <body>
-
+    
     <nav>
         <a href="index.html">Home</a>
         <a href="projekte.html">Projekte</a>
@@ -125,35 +57,23 @@
         
     </main>
 
-    <footer>
-        <p>&copy; 2024 niliees</p>
-		<label class="switch">
-        <input type="checkbox" id="styleSwitch">
-        <span class="slider"></span>
-        Weihnachtsmodus
+    <label class="switch">
+        <input type="checkbox" id="styleSwitch"> 
+        <span class="slider"></span> 
+        <h2> Weihnachtsmodus </h2>
+        
+        
     </label>
 
     <script>
         // JavaScript zum Wechseln der Stylesheets
-        document.addEventListener('DOMContentLoaded', function() {
-            const styleSwitch = document.getElementById('styleSwitch');
+        document.getElementById('styleSwitch').addEventListener('change', function() {
             const stylesheet = document.getElementById('theme-stylesheet');
-
-            // Lade den aktuellen Zustand aus localStorage
-            if (localStorage.getItem('isChristmasMode') === 'true') {
-                styleSwitch.checked = true;
+            if (this.checked) {
                 stylesheet.href = 'christmas-styles.css';
+            } else {
+                stylesheet.href = 'styles.css';
             }
-
-            styleSwitch.addEventListener('change', function() {
-                if (this.checked) {
-                    stylesheet.href = 'christmas-styles.css';
-                    localStorage.setItem('isChristmasMode', 'true');
-                } else {
-                    stylesheet.href = 'styles.css';
-                    localStorage.setItem('isChristmasMode', 'false');
-                }
-            });
         });
     </script>
 
@@ -194,6 +114,26 @@
             transition: 0.4s;
         }
 
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Slider Rund machen */
+        .slider {
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            border-radius: 50%;
+        }
+    </style>
+
+    <footer>
+        <p>&copy; 2024 niliees</p>
     </footer>
 
 </body>
