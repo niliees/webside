@@ -125,6 +125,85 @@
 
     <footer>
         <p>&copy; 2024 niliees</p>
+		<label class="switch">
+        <input type="checkbox" id="styleSwitch">
+        <span class="slider"></span>
+        Weihnachtsmodus
+    </label>
+
+    <script>
+        // JavaScript zum Wechseln der Stylesheets
+        document.addEventListener('DOMContentLoaded', function() {
+            const styleSwitch = document.getElementById('styleSwitch');
+            const stylesheet = document.getElementById('theme-stylesheet');
+
+            // Lade den aktuellen Zustand aus localStorage
+            if (localStorage.getItem('isChristmasMode') === 'true') {
+                styleSwitch.checked = true;
+                stylesheet.href = 'christmas-styles.css';
+            }
+
+            styleSwitch.addEventListener('change', function() {
+                if (this.checked) {
+                    stylesheet.href = 'christmas-styles.css';
+                    localStorage.setItem('isChristmasMode', 'true');
+                } else {
+                    stylesheet.href = 'styles.css';
+                    localStorage.setItem('isChristmasMode', 'false');
+                }
+            });
+        });
+    </script>
+
+    <style>
+         /* Style für den Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px; /* Rundes Design */
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%; /* Rundes Design */
+}
+
+/* Wenn die Checkbox aktiviert ist */
+input:checked + .slider {
+    background-color: #4CAF50; /* Grüne Farbe wenn aktiviert */
+}
+
+/* Verschiebe den Knopf nach rechts, wenn aktiviert */
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+</style>
     </footer>
 </body>
 </html>
