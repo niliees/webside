@@ -158,7 +158,21 @@
     </script>
 
     <style>
-        .slider {
+    /* Style für den Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -167,7 +181,7 @@
     bottom: 0;
     background-color: #ccc;
     transition: 0.4s;
-    border-radius: 34px; /* Optional für runde Slider */
+    border-radius: 34px; /* Rundes Design */
 }
 
 .slider:before {
@@ -179,19 +193,19 @@
     bottom: 4px;
     background-color: white;
     transition: 0.4s;
-    border-radius: 50%; /* Optional für runde Slider */
+    border-radius: 50%; /* Rundes Design */
 }
 
 /* Wenn die Checkbox aktiviert ist */
 input:checked + .slider {
-    background-color: #4CAF50; /* Farbe des Sliders wenn aktiviert */
+    background-color: #4CAF50; /* Grüne Farbe wenn aktiviert */
 }
 
-/* Animation für den Schiebeknopf */
+/* Verschiebe den Knopf nach rechts, wenn aktiviert */
 input:checked + .slider:before {
-    transform: translateX(26px); /* Verschiebt den Knopf nach rechts */
+    transform: translateX(26px);
 }
-
+	    </style>
     </footer>
 
 </body>
