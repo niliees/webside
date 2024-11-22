@@ -73,7 +73,6 @@
         <a href="contact.html">Kontakt</a>
         <a href="links.html">Links</a>
         <a href="tools.html">Tools(NEW)</a>
-        <a href="admin.html">Admin</a>
         <a href="https://niliees.betteruptime.com/">Status</a>
 
     </nav>
@@ -84,21 +83,14 @@
 
     <main>
         <section class="link-list" id="linkList">
-            <a id="supportLink" href="https://ko-fi.com/niliees" target="_blank">Support Me</a>
-            <a id="discordLink" href="https://discord.gg/euq2wtrq" target="_blank">Discord</a>
-            <h3>Tools</h3>
-            <a id="multiToolLink" href="https://www.dropbox.com/scl/fi/k9rslw3mzsmanfliqheup/MultiTool-by-niliees-PREMIUM.bat?rlkey=1mj5swc01typ52k38q38n3g4g&st=z81c7fhv&dl=1" target="_blank">Multi Tool</a>
-            <a id="gamingBoosterLink" href="https://www.dropbox.com/scl/fi/iigy7pxerk0qzi2u71w04/Gaming-Booster-by-niliees-PREMIUM.bat?rlkey=2olxpajgvhx83sx91cfckz4gu&st=w5rc50dy&dl=1" target="_blank">Gaming Booster</a>
-            <h3>BetterGaming</h3>
-            <a id="directDataLink" href="http://bit.ly/3TDYy7Y" target="_blank">Direkt alle Daten</a>
-            <a id="githubLink" href="https://github.com/niliees/BetterGaming" target="_blank">GitHub</a>
+            <a id="linktree" href="https://linktr.ee/niliees" target="_blank">Linktree</a>
         </section>
     </main>
 
     <script>
         // Einstellungen aus dem Local Storage anwenden
         window.onload = function() {
-            document.getElementById("supportLink").style.display = localStorage.getItem("supportLink") === "false" ? "none" : "block";
+            document.getElementById("linktree").style.display = localStorage.getItem("linktree") === "false" ? "none" : "block";
             document.getElementById("discordLink").style.display = localStorage.getItem("discordLink") === "false" ? "none" : "block";
             document.getElementById("multiToolLink").style.display = localStorage.getItem("multiToolLink") === "false" ? "none" : "block";
             document.getElementById("gamingBoosterLink").style.display = localStorage.getItem("gamingBoosterLink") === "false" ? "none" : "block";
