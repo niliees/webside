@@ -8,9 +8,11 @@
     <style>
         .project-card {
             transition: transform 0.2s, opacity 0.3s;
+            cursor: pointer;
         }
         .project-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
         .hidden-card {
             opacity: 0;
@@ -32,7 +34,7 @@
 <body class="bg-gray-900 text-white transition-colors duration-300">
     <!-- Header -->
     <header class="container mx-auto px-4 py-16 text-center">
-        <h1 class="text-5xl font-bold mb-4">niliees</h1>
+        <h1 class="text-5xl font-bold mb-4">Niliees Projekte</h1>
         <p class="text-xl text-gray-400">Entwickler & Programmierer</p>
         
         <!-- Theme Toggle -->
@@ -64,8 +66,13 @@
         <h2 class="text-3xl font-bold mb-8">Meine Projekte</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Project Cards with data-tags -->
-            <div class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Gaming,Web">
-                <h3 class="text-xl font-bold mb-2">alt-f4.fr</h3>
+            <div onclick="window.location.href='/projekte/alt-f4-fr'" class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Gaming,Web">
+                <h3 class="text-xl font-bold mb-2 flex justify-between items-center">
+                    alt-f4.fr
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                </h3>
                 <p class="text-gray-400 mb-4">Ein Gaming-bezogenes Projekt</p>
                 <div class="flex gap-2">
                     <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">Gaming</span>
@@ -73,8 +80,13 @@
                 </div>
             </div>
 
-            <div class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Gaming,Tool">
-                <h3 class="text-xl font-bold mb-2">Crosshair</h3>
+            <div onclick="window.location.href='/projekte/crosshair'" class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Gaming,Tool">
+                <h3 class="text-xl font-bold mb-2 flex justify-between items-center">
+                    Crosshair
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                </h3>
                 <p class="text-gray-400 mb-4">Fadenkreuz-Customization Tool</p>
                 <div class="flex gap-2">
                     <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">Gaming</span>
@@ -82,16 +94,26 @@
                 </div>
             </div>
 
-            <div class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Gaming">
-                <h3 class="text-xl font-bold mb-2">Tournament Point Counter</h3>
+            <div onclick="window.location.href='/projekte/fn-tournament-counter'" class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Gaming">
+                <h3 class="text-xl font-bold mb-2 flex justify-between items-center">
+                    Tournament Point Counter
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                </h3>
                 <p class="text-gray-400 mb-4">Punktezähler für Turniere</p>
                 <div class="flex gap-2">
                     <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">Gaming</span>
                 </div>
             </div>
 
-            <div class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Web,Events">
-                <h3 class="text-xl font-bold mb-2">Tag-der-offenen-tür</h3>
+            <div onclick="window.location.href='/projekte/tag-der-offenen-tuer'" class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Web,Events">
+                <h3 class="text-xl font-bold mb-2 flex justify-between items-center">
+                    Tag-der-offenen-tür
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                </h3>
                 <p class="text-gray-400 mb-4">Event-Management System</p>
                 <div class="flex gap-2">
                     <span class="px-3 py-1 bg-green-600 rounded-full text-sm">Web</span>
@@ -99,8 +121,13 @@
                 </div>
             </div>
 
-            <div class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Tool,AI">
-                <h3 class="text-xl font-bold mb-2">Text Erkenner</h3>
+            <div onclick="window.location.href='/projekte/text-erkenner'" class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Tool,AI">
+                <h3 class="text-xl font-bold mb-2 flex justify-between items-center">
+                    Text Erkenner
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                </h3>
                 <p class="text-gray-400 mb-4">OCR-Tool für Texterkennung</p>
                 <div class="flex gap-2">
                     <span class="px-3 py-1 bg-indigo-600 rounded-full text-sm">AI</span>
@@ -108,8 +135,13 @@
                 </div>
             </div>
 
-            <div class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Tool,Windows">
-                <h3 class="text-xl font-bold mb-2">Win-Autostart</h3>
+            <div onclick="window.location.href='/projekte/win-autostart'" class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Tool,Windows">
+                <h3 class="text-xl font-bold mb-2 flex justify-between items-center">
+                    Win-Autostart
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                </h3>
                 <p class="text-gray-400 mb-4">Windows Autostart Manager</p>
                 <div class="flex gap-2">
                     <span class="px-3 py-1 bg-gray-600 rounded-full text-sm">Windows</span>
