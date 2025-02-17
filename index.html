@@ -3,210 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <link id="theme-stylesheet" rel="stylesheet" href="christmas-styles.css">
-    <title>niliees</title>
-    
-	<style>
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #ffffff;
-        }
-
-        /* Projektkarten Styling */
-        .project-cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
+    <title>niliees.dev - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
         .project-card {
-            background-color: #333;
-            color: #fff;
-            padding: 1.5rem;
-            border-radius: 10px;
-            width: 260px;
-            transition: transform 0.3s ease;
-            box-shadow: 0 0 10px #4CAF50;
+            transition: transform 0.2s, opacity 0.3s;
         }
-
         .project-card:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
         }
-
-        /* Terminal Simulation Styling */
-        .console {
-            background-color: #000;
-            color: #00FF41;
-            padding: 1rem;
-            font-family: 'Courier New', Courier, monospace;
-            border-radius: 5px;
-            margin-top: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+        .hidden-card {
+            opacity: 0;
+            pointer-events: none;
         }
-
-        .console p {
-            margin: 0.3rem 0;
+        .light-mode {
+            background-color: #f3f4f6;
+            color: #1f2937;
         }
-
-        /* Link-Styling */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
+        .light-mode .project-card {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        .social-links a {
-            text-decoration: none;
-            color: #4CAF50;
-            font-size: 1.2rem;
-            transition: color 0.3s;
+        .light-mode .text-gray-400 {
+            color: #4b5563;
         }
-
-        .social-links a:hover {
-            color: #fff;
-        }
-
     </style>
 </head>
-<body>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="projekte.html">Projekte</a>
-        <a href="about.html">Über Mich</a>
-        <a href="gallery.html">Galerie</a>
-        <a href="contact.html">Kontakt</a>
-        <a href="links.html">Links</a>
-        <a href="tools.html">Tools(NEW)</a>
-        <a href="https://niliees.betteruptime.com/">Status</a>
-
-    </nav>
-
-    <header>
-        <h1>Willkommen auf meiner Seite!</h1>
-        <p>Hallo! Ich bin niliees, Entwickler und Streamer.</p>
+<body class="bg-gray-900 text-white transition-colors duration-300">
+    <!-- Header -->
+    <header class="container mx-auto px-4 py-16 text-center">
+        <h1 class="text-5xl font-bold mb-4">niliees</h1>
+        <p class="text-xl text-gray-400">Entwickler & Programmierer</p>
+        
+        <!-- Theme Toggle -->
+        <button onclick="toggleTheme()" class="mt-4 px-4 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors">
+            🌓 Theme wechseln
+        </button>
     </header>
 
-    <main>
-        <section>
-            <h2>Über mich</h2>
-            <p>Ich bin ein leidenschaftlicher Programmierer und arbeite gerne an kreativen Projekten. Auf dieser Seite findest du Links zu meinen sozialen Medien und Projekten.</p>
-        </section>
+    <!-- Filter Buttons -->
+    <div class="container mx-auto px-4 mb-8 text-center">
+        <div class="inline-flex gap-2 flex-wrap justify-center">
+            <button onclick="filterProjects('all')" class="px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors">
+                Alle
+            </button>
+            <button onclick="filterProjects('Gaming')" class="px-4 py-2 bg-green-600 rounded-lg hover:bg-green-700 transition-colors">
+                Gaming
+            </button>
+            <button onclick="filterProjects('Tool')" class="px-4 py-2 bg-purple-600 rounded-lg hover:bg-purple-700 transition-colors">
+                Tools
+            </button>
+            <button onclick="filterProjects('Web')" class="px-4 py-2 bg-yellow-600 rounded-lg hover:bg-yellow-700 transition-colors">
+                Web
+            </button>
+        </div>
+    </div>
 
-        <section class="project-cards">
-            <div class="project-card">
-                <h3>Projekt 1: Discord Bot</h3>
-                <p>Ein Bot für Discord, der verschiedene nützliche Funktionen bereitstellt, von Moderation bis Unterhaltung.</p>
+    <!-- Projects Grid -->
+    <main class="container mx-auto px-4 py-8">
+        <h2 class="text-3xl font-bold mb-8">Meine Projekte</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Project Cards with data-tags -->
+            <div class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Gaming,Web">
+                <h3 class="text-xl font-bold mb-2">alt-f4.fr</h3>
+                <p class="text-gray-400 mb-4">Ein Gaming-bezogenes Projekt</p>
+                <div class="flex gap-2">
+                    <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">Gaming</span>
+                    <span class="px-3 py-1 bg-green-600 rounded-full text-sm">Web</span>
+                </div>
             </div>
-            <div class="project-card">
-                <h3>Projekt 2: Gaming Booster</h3>
-                <p>Eine Anwendung, die optimiert wurde, um das Spielerlebnis zu verbessern und Ressourcen freizugeben.</p>
-            </div>
-            <div class="project-card">
-                <h3>Projekt 3: Portfolio Website</h3>
-                <p>Eine Webseite, die meine Arbeit und Fähigkeiten zeigt. Komplett mit HTML, CSS und JavaScript.</p>
-            </div>
-        </section>
 
-        <section class="console">
-            <h2>Virtuelle Konsole</h2>
-            <p>&gt; niliees@home:~$ Willkommen zu meiner persönlichen Webseite</p>
-            <p>&gt; niliees@home:~$ Hier findest du alles über meine Projekte</p>
-            <p>&gt; niliees@home:~$ Schaue dich um und lass dich inspirieren!</p>
-        </section>
+            <div class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Gaming,Tool">
+                <h3 class="text-xl font-bold mb-2">Crosshair</h3>
+                <p class="text-gray-400 mb-4">Fadenkreuz-Customization Tool</p>
+                <div class="flex gap-2">
+                    <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">Gaming</span>
+                    <span class="px-3 py-1 bg-purple-600 rounded-full text-sm">Tool</span>
+                </div>
+            </div>
 
-        
+            <div class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Gaming">
+                <h3 class="text-xl font-bold mb-2">Tournament Point Counter</h3>
+                <p class="text-gray-400 mb-4">Punktezähler für Turniere</p>
+                <div class="flex gap-2">
+                    <span class="px-3 py-1 bg-blue-600 rounded-full text-sm">Gaming</span>
+                </div>
+            </div>
+
+            <div class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Web,Events">
+                <h3 class="text-xl font-bold mb-2">Tag-der-offenen-tür</h3>
+                <p class="text-gray-400 mb-4">Event-Management System</p>
+                <div class="flex gap-2">
+                    <span class="px-3 py-1 bg-green-600 rounded-full text-sm">Web</span>
+                    <span class="px-3 py-1 bg-red-600 rounded-full text-sm">Events</span>
+                </div>
+            </div>
+
+            <div class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Tool,AI">
+                <h3 class="text-xl font-bold mb-2">Text Erkenner</h3>
+                <p class="text-gray-400 mb-4">OCR-Tool für Texterkennung</p>
+                <div class="flex gap-2">
+                    <span class="px-3 py-1 bg-indigo-600 rounded-full text-sm">AI</span>
+                    <span class="px-3 py-1 bg-purple-600 rounded-full text-sm">Tool</span>
+                </div>
+            </div>
+
+            <div class="project-card bg-gray-800 rounded-lg p-6 shadow-lg" data-tags="Tool,Windows">
+                <h3 class="text-xl font-bold mb-2">Win-Autostart</h3>
+                <p class="text-gray-400 mb-4">Windows Autostart Manager</p>
+                <div class="flex gap-2">
+                    <span class="px-3 py-1 bg-gray-600 rounded-full text-sm">Windows</span>
+                    <span class="px-3 py-1 bg-purple-600 rounded-full text-sm">Tool</span>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 niliees</p>
-		<label class="switch">
-        <input type="checkbox" id="styleSwitch">
-        <span class="slider"></span>
-        Weihnachtsmodus
-    </label>
-
-    <script>
-        // JavaScript zum Wechseln der Stylesheets
-        document.addEventListener('DOMContentLoaded', function() {
-            const styleSwitch = document.getElementById('styleSwitch');
-            const stylesheet = document.getElementById('theme-stylesheet');
-
-            // Lade den aktuellen Zustand aus localStorage
-            if (localStorage.getItem('isChristmasMode') === 'true') {
-                styleSwitch.checked = true;
-                stylesheet.href = 'christmas-styles.css';
-            }
-
-            styleSwitch.addEventListener('change', function() {
-                if (this.checked) {
-                    stylesheet.href = 'christmas-styles.css';
-                    localStorage.setItem('isChristmasMode', 'true');
-                } else {
-                    stylesheet.href = 'styles.css';
-                    localStorage.setItem('isChristmasMode', 'false');
-                }
-            });
-        });
-    </script>
-
-    <style>
-         /* Style für den Switch */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: 0.4s;
-    border-radius: 34px; /* Rundes Design */
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: 0.4s;
-    border-radius: 50%; /* Rundes Design */
-}
-
-/* Wenn die Checkbox aktiviert ist */
-input:checked + .slider {
-    background-color: #4CAF50; /* Grüne Farbe wenn aktiviert */
-}
-
-/* Verschiebe den Knopf nach rechts, wenn aktiviert */
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
-</style>
-
+    <!-- Footer -->
+    <footer class="container mx-auto px-4 py-8 mt-16 text-center text-gray-400">
+        <p>© 2025 niliees - Alle Rechte vorbehalten</p>
     </footer>
 
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+        }
+
+        // Project Filtering
+        function filterProjects(tag) {
+            const projects = document.querySelectorAll('.project-card');
+            
+            projects.forEach(project => {
+                const projectTags = project.dataset.tags.split(',');
+                
+                if (tag === 'all' || projectTags.includes(tag)) {
+                    project.classList.remove('hidden-card');
+                    project.style.display = '';
+                } else {
+                    project.classList.add('hidden-card');
+                    setTimeout(() => {
+                        project.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+    </script>
 </body>
 </html>
