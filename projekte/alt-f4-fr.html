@@ -3,34 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>In Entwicklung - niliees.dev</title>
+    <title>Alt+F4 For Real - niliees.dev</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        .tech-tag {
+            transition: transform 0.2s;
         }
-        .animate-pulse-slow {
-            animation: pulse 3s infinite;
+        .tech-tag:hover {
+            transform: translateY(-2px);
         }
-        .progress-bar {
-            width: 100%;
-            height: 4px;
-            background: #1f2937;
-            overflow: hidden;
+        .screenshot {
+            transition: transform 0.3s;
         }
-        .progress-bar::after {
-            content: '';
-            display: block;
-            width: 40%;
-            height: 100%;
-            background: #3b82f6;
-            animation: progress 2s infinite;
-            border-radius: 2px;
-        }
-        @keyframes progress {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(250%); }
+        .screenshot:hover {
+            transform: scale(1.02);
         }
     </style>
 </head>
@@ -44,64 +30,78 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 min-h-screen flex items-center justify-center">
-        <div class="max-w-2xl mx-auto text-center">
-            <!-- Development Icon -->
-            <div class="mb-8 animate-pulse-slow">
-                <svg class="w-24 h-24 mx-auto text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
-                          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                </svg>
+    <!-- Hero Section -->
+    <header class="container mx-auto px-4 py-16">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold mb-4">Alt+F4 For Real</h1>
+            <p class="text-xl text-gray-400 mb-8">Findest du es auch nervig das wenn du in spielen oder Programmen beim alt+f4 drücken noch so eine meldung kommt, jetzt nicht mehr mit alt+f4 fr</p>
+            
+            <!-- Tech Stack Tags -->
+            <div class="flex flex-wrap gap-3 mb-8">
+                <span class="tech-tag px-4 py-2 bg-blue-600 rounded-full text-sm">ahk</span>
             </div>
 
-            <div class="progress-bar mb-12"></div>
+            <!-- Project Links -->
+            <div class="flex gap-4 mb-12">
+                <a href="https://www.dropbox.com/scl/fi/dut9jlbk0l8sraawxv33j/alt-f4-fr.exe?rlkey=0z8x1ljp6yywz1tuulye8heao&st=i9bqmdfq&dl=1" class="px-6 py-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors inline-flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                    </svg>
+                    Download
+                </a>
+                <a href="https://github.com/niliees/alt-f4-fr/tree/main" class="px-6 py-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors inline-flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
+                    Source Code
+                </a>
+            </div>
+        </div>
+    </header>
 
-            <!-- Content -->
-            <h1 class="text-4xl font-bold mb-6">Projekt in Entwicklung</h1>
-            <p class="text-xl text-gray-400 mb-8">
-                Dieses Projekt befindet sich aktuell in der Entwicklungsphase. 
-                Schaue später wieder vorbei für Updates!
-            </p>
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
 
-            <!-- Feature Preview -->
-            <div class="bg-gray-800 rounded-lg p-6 mb-8">
-                <h2 class="text-xl font-bold mb-4">Geplante Features</h2>
-                <div class="space-y-4">
-                    <div class="flex items-center space-x-2">
-                        <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        <span>Benutzeroberfläche</span>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        <span>Core Funktionalität</span>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-                        </svg>
-                        <span>Zusätzliche Features</span>
+            <!-- Project Description -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2">
+                    <h2 class="text-2xl font-bold mb-4">Über das Projekt</h2>
+                    <div class="space-y-4 text-gray-300">
+                        <p>Mit Alt+F4 fr immer das Programm oder spiel direkt beenden</p>
+                        <p>Keine nervigen meldungen mehr</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Development Status -->
-            <div class="inline-flex items-center space-x-2 text-sm text-gray-400">
-                <span class="relative flex h-3 w-3">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
-                </span>
-                <span>Aktive Entwicklung</span>
+                <!-- Technical Details -->
+                <div class="bg-gray-800 p-6 rounded-lg h-fit">
+                    <h3 class="text-xl font-bold mb-4">Technische Details</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-gray-400 mb-2">Version</h4>
+                            <p>1.0.0</p>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-400 mb-2">Erstellt</h4>
+                            <p>5 Februar 2025</p>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-400 mb-2">Letztes Update</h4>
+                            <p>5 Februar 2025</p>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-400 mb-2">Plattform</h4>
+                            <p>Windows</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="container mx-auto px-4 py-8 text-center text-gray-400">
+    <footer class="container mx-auto px-4 py-8 mt-16 text-center text-gray-400 border-t border-gray-800">
         <p>© 2025 niliees.dev - Alle Rechte vorbehalten</p>
     </footer>
 </body>
