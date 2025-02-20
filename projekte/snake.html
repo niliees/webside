@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Erkenner - niliees.dev</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .tech-tag {
+            transition: transform 0.2s;
+        }
+        .tech-tag:hover {
+            transform: translateY(-2px);
+        }
+        .screenshot {
+            transition: transform 0.3s;
+        }
+        .screenshot:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <a href="https://niliees.dev" class="text-gray-400 hover:text-white transition-colors">
+                ← Zurück zur Übersicht
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="container mx-auto px-4 py-16">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold mb-4">Snake</h1>
+            <p class="text-xl text-gray-400 mb-8">Das coole und einfache spiel Snake, aber ab dem nächstem update(1.1) kommen mods</p>
+            
+            <!-- Tech Stack Tags -->
+            <div class="flex flex-wrap gap-3 mb-8">
+                <span class="tech-tag px-4 py-2 bg-blue-600 rounded-full text-sm">C++</span>
+                <span class="tech-tag px-4 py-2 bg-green-600 rounded-full text-sm">dll</span>
+                <span class="tech-tag px-4 py-2 bg-purple-600 rounded-full text-sm">C</span>
+                <span class="tech-tag px-4 py-2 bg-yellow-600 rounded-full text-sm">CMake</span>
+            </div>
+
+            <!-- Project Links -->
+            <div class="flex gap-4 mb-12">
+                <a href="https://www.dropbox.com/scl/fi/svzcxas7q7t4079z122wk/Snake-V1.exe?rlkey=enmag1f3vzsus65wkdel2cr3b&st=qfrc7g0y&dl=1" class="px-6 py-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors inline-flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                    </svg>
+                    Download
+                </a>
+                <a href="https://github.com/niliees/Snake-Game/tree/main" class="px-6 py-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors inline-flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
+                    Source Code
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- Screenshot -->
+            <div class="mb-12">
+                <img src="/api/placeholder/800/400" alt="Text Erkenner Screenshot" class="screenshot rounded-lg shadow-xl w-full"/>
+            </div>
+
+            <!-- Project Description -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2">
+                    <h2 class="text-2xl font-bold mb-4">Über das Projekt</h2>
+                    <div class="space-y-4 text-gray-300">
+                        <p>Es ist das Basic Game Snake nur cooler</p>
+                        <p>nur ab der nächsten version gibt es mods die alles noch cooler machen</p>
+                        <h3 class="text-xl font-bold mt-8 mb-4">Mods die kommen werden:</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Double Growth: rpo Apfel wächst man 2 Felder statt 1 Feld</li>
+                            <li>Speed: Man ist schneller</li>
+                            <li>Slownes: Man ist langsammer</li>
+                            <li>Bigger: Man ist größer</li>
+                            <li>RGB: Man ist farblich</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Technical Details -->
+                <div class="bg-gray-800 p-6 rounded-lg h-fit">
+                    <h3 class="text-xl font-bold mb-4">Technische Details</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-gray-400 mb-2">Version</h4>
+                            <p>1.0.0</p>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-400 mb-2">Erstellt</h4>
+                            <p>20 Februar 2025</p>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-400 mb-2">Letztes Update</h4>
+                            <p>20 Februar 2025</p>
+                        </div>
+                        <div>
+                            <h4 class="text-gray-400 mb-2">Plattform</h4>
+                            <p>Windows</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="container mx-auto px-4 py-8 mt-16 text-center text-gray-400 border-t border-gray-800">
+        <p>© 2025 niliees.dev - Alle Rechte vorbehalten</p>
+    </footer>
+</body>
+</html>
